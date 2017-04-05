@@ -1,0 +1,66 @@
+body {
+    background-image: url("../images/mountains.png");
+    background-size: 100%
+}
+
+h1{
+	text-align: center;
+	font-size: 100px;
+	font-family: "Century Gothic", sans-serif;
+	color: #0056b3;
+}
+h2, .bgicons{
+  text-align: center;
+  font-size: 30px;
+  font-family: "Century Gothic", sans-serif;
+  color: #66b0ff;
+}
+li{
+    display: inline;
+}
+.form-control{
+  background-color: rgba(230, 242, 255, 0.75);
+}
+#bgicon{
+	width: 40px;
+	height: 20px;
+}
+#subtitle{
+	font-size: 50%;
+	color: #66b0ff;
+	padding: 0 20% 0 20%;
+}
+
+#text-box{
+	text-align: center;
+}
+#entry_name{
+
+}
+#entry_box{
+	border: 1px solid #0056b3;
+	border-radius: 8px;
+	width: 400px;
+	height: 200px;
+	padding: 5px;
+	resize: none;
+	background-color: rgba(230, 242, 255, 0.1);
+}
+#entry_name{
+  height: 25px;
+}
+
+
+#submit_button{
+	width: 400px;
+}
+
+#myBtn{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.caret.caret-up {
+  border-top-width: 0;
+  border-bottom: 4px solid #fff;
+}

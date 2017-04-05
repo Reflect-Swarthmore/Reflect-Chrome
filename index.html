@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- METADATA -->
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Reflect on today.</title>
+
+		<!-- LINKS -->
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	  <script src="background.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/npm.js"></script>
+		<link rel="stylesheet" href="../css/reflect.css">
+
+		<!-- FONTS -->
+
+	</head>
+
+	<body>
+		<header>
+		</header>
+
+		<main>
+			<h1> reflect <br>
+				<div id="subtitle">on today</div></h1>
+			<h2 id="date"> Some day  </h2>
+
+				<!-- <div id="text-box"r> -->
+				<div class="row">
+					<div class="col-md-4">
+							<div class="container">
+							  <div class="dropdown">
+							    <button id="themes" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Themes
+							    <span class="caret"></span></button>
+							    <ul class="dropdown-menu">
+							      <li id="mountains"><a href="#">Mountains</a></li>
+							      <li id="sunset">   <a href="#">Sunset</a></li>
+							    </ul>
+							  </div>
+							</div>
+					</div>
+
+					<div class="col-md-4">
+							<textarea class="form-control" rows="1" id="inputName" placeholder="Type your name"></textarea>
+							<textarea class="form-control" rows="3" id="inputText" placeholder="Write about your day"></textarea>
+
+          		<button id = "myBtn" type="button" class="btn btn-primary" >Submit</button>
+							<script src="fb.js"></script>
+					</div>
+
+					<div class="col-md-4">
+					</div>
+		</main>
+
+
+
+	</body>
+</html>

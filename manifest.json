@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Chrome Reflect/Journey",
+  "version": "2.1",
+  "description": "Gets information from Google.",
+  "permissions": ["identity", "activeTab", "http://*.google.com/", "https://*.google.com/"
+  ],
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+	"icons": {
+    "128": "images/icon_reflect.png"
+  },
+
+  "browser_action": {
+    "default_title": "Chrome Reflect"
+  },
+  "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+
+}
