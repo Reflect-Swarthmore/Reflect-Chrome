@@ -1,13 +1,3 @@
-// // Initialize Firebase
-// var config = {
-// 	apiKey: "AIzaSyDGqvUz6xt3ZkDhHFk85rMIu7bQI_JLW4A",
-// 	authDomain: "journal-ed5a3.firebaseapp.com",
-// 	databaseURL: "https://journal-ed5a3.firebaseio.com",
-// 	storageBucket: "journal-ed5a3.appspot.com",
-// 	messagingSenderId: "295577169635"
-// };
-// firebase.initializeApp(config);
-
 function submitEntry(){
 	firebase.database().ref('users/' + document.getElementById('inputName').value ).set(
 														{ journal:	document.getElementById('inputText').value,
@@ -16,8 +6,6 @@ function submitEntry(){
 												);
 }
 document.getElementById('myBtn').onclick = submitEntry;
-
-
 
 //background change functionality
 var current = document.body.style.backgroundImage; //this is to allow for previews of other themes
@@ -46,7 +34,7 @@ document.getElementById('sunset').addEventListener("mouseout", function(){
 });
 
 
-//click listeners - this changes the current variable and sets the background 
+//click listeners - this changes the current variable and sets the background
 document.getElementById('mountains').addEventListener("click", function(){
 	current = "url(../images/mountains.png)";
 	newBackground(current);

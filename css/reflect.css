@@ -60,6 +60,11 @@ li{
   margin-left: auto;
   margin-right: auto;
 }
+#login{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
 .caret.caret-up {
   border-top-width: 0;
   border-bottom: 4px solid #fff;

@@ -30,14 +30,18 @@
 				<div id="subtitle">on today</div></h1>
 			<h2 id="date"> Some day  </h2>
 
-				<!-- <div id="text-box"r> -->
+				<!-- This div creates a single row -->
 				<div class="row">
+					<!-- diving the page by three, this is the left column  -->
 					<div class="col-md-4">
 							<div class="container">
+								<!-- creates a dropwdown menu -->
 							  <div class="dropdown">
+									<!-- button styles  -->
 							    <button id="themes" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Themes
 							    <span class="caret"></span></button>
-							    <ul class="dropdown-menu">
+									<!-- categories of the menu -->
+									<ul class="dropdown-menu">
 							      <li id="mountains"><a href="#">Mountains</a></li>
 							      <li id="sunset">   <a href="#">Sunset</a></li>
 							    </ul>
@@ -45,6 +49,7 @@
 							</div>
 					</div>
 
+					<!-- middle column division -->
 					<div class="col-md-4">
 							<textarea class="form-control" rows="1" id="inputName" placeholder="Type your name"></textarea>
 							<textarea class="form-control" rows="3" id="inputText" placeholder="Write about your day"></textarea>
@@ -54,10 +59,12 @@
 					<script src="js/fb.js"></script>
 
 					<div class="col-md-4">
+						<button id = "login" type="button" class="btn btn-primary" >LOGIN</button>
+						<p>Profile status
+							<div id="sign-in-status">Signed out </div>
+						</p>
 					</div>
+					<script src="js/login.js"></script>
 		</main>
-
-
-
 	</body>
 </html>
