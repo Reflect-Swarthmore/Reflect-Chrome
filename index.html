@@ -10,8 +10,8 @@
 		<!-- LINKS -->
 		<link rel="stylesheet" href="../css/bootstrap.css">
 		<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-	  <script src="js/background.js"></script>
 		<script src="js/jquery.min.js"></script>
+		<script src="js/background.js"></script>
 		<script src="js/bootstrap.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/npm.js"></script>
@@ -51,7 +51,8 @@
 					<!-- middle column division -->
 					<div class="col-md-4">
 						<div class="journal-entry">
-							<textarea class="form-control" rows="1" id="inputName" placeholder="Type your name"></textarea>
+							<div id="welcome-msg"></div>
+							<div id="welcome-usr"></div>
 							<textarea class="form-control" rows="3" id="inputText" placeholder="Write about your day"></textarea>
 						</div>
 						<div class="journal-buttons">
@@ -67,8 +68,6 @@
 						<script src="js/login.js"></script>
 						<p>Profile status
 							<div id="sign-in-status">Signed out </div>
-							<div id="welcome-msg">Welcome!</div>
-							<div id="welcome-usr"></div>
 						</p>
 					</div>
 		</main>
