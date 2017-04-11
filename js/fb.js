@@ -1,5 +1,6 @@
 function submitEntry(){
-	firebase.database().ref('users/' + document.getElementById('inputName').value ).set(
+	var user = firebase.auth().currentUser;
+	firebase.database().ref('users/' + JSON.stringify(user, ['displayName']) ).set(
 														{ journal:	document.getElementById('inputText').value,
 																date: document.getElementById('date').textContent
 														}

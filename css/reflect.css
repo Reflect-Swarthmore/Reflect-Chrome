@@ -56,14 +56,18 @@ li{
 }
 
 #myBtn{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  /*margin-left: auto;*/
+  /*display: block;*/
+  /*margin-right: auto;*/
 }
 #login{
   display: block;
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
+}
+.journal-buttons {
+  margin-top: 10mm;
+  text-align: center;
 }
 .caret.caret-up {
   border-top-width: 0;

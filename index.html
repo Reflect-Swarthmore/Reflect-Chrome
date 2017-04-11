@@ -16,7 +16,6 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/npm.js"></script>
 		<link rel="stylesheet" href="../css/reflect.css">
-
 		<!-- FONTS -->
 
 	</head>
@@ -51,20 +50,27 @@
 
 					<!-- middle column division -->
 					<div class="col-md-4">
+						<div class="journal-entry">
 							<textarea class="form-control" rows="1" id="inputName" placeholder="Type your name"></textarea>
 							<textarea class="form-control" rows="3" id="inputText" placeholder="Write about your day"></textarea>
-
-          		<button id = "myBtn" type="button" class="btn btn-primary" >Submit</button>
+						</div>
+						<div class="journal-buttons">
+							<button id = "draft" type="button" class="btn btn-primary" >Save draft</button>
+							<button id = "myBtn" type="button" class="btn btn-primary"  >Submit</button>
+						</div>
 					</div>
 					<script src="js/fb.js"></script>
 
+					<!-- Right column division -->
 					<div class="col-md-4">
 						<button id = "login" type="button" class="btn btn-primary" >LOGIN</button>
+						<script src="js/login.js"></script>
 						<p>Profile status
 							<div id="sign-in-status">Signed out </div>
+							<div id="welcome-msg">Welcome!</div>
+							<div id="welcome-usr"></div>
 						</p>
 					</div>
-					<script src="js/login.js"></script>
 		</main>
 	</body>
 </html>
