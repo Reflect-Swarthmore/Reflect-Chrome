@@ -11,6 +11,7 @@ function submitEntry(){
 														  date: document.getElementById('date').textContent
 														}
 												);
+		document.getElementById('inputText').value = "";
 }
 document.getElementById('myBtn').onclick = submitEntry;
 
@@ -61,31 +62,38 @@ document.getElementById('UPrompt').addEventListener("click", function(){
 });
 
 //printing journal entries to right col
-function printJournal(text, item){
+function printJournal(heading, text, item){
 	// create panel container
 	var p = document.createElement("div");
 	p.setAttribute("class", "panel panel-default");
 	// panel heading
 	var p_head = document.createElement("div");
 	p_head.setAttribute("class", "panel panel-heading");
+	var p_head_text = document.createTextNode(heading);
+	p_head.appendChild(p_head_text);
+
 	// panel body
 	var p_body = document.createElement("div");
 	p_body.setAttribute("class", "panel panel-body");
 	// panel body's text
 	var p_body_text = document.createTextNode(text);
+	p_body.appendChild(p_body_text);
 
 	//putting panel together and adding to HTML
 	p.appendChild(p_head);
-	p_body.appendChild(p_body_text);
 	p.appendChild(p_body);
 	document.getElementById(item).appendChild(p);
-
 }
 document.getElementById('previous').addEventListener("click", function(){
 	var user = firebase.auth().currentUser;
-	var userId = firebase.database().ref("user/"+user.displayName);
-	firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-	  var username = snapshot.val().username;
-		printJournal("some text", "prev-entries");
+	var userName = JSON.stringify(user, ['displayName']);
+	firebase.database().ref('users/' + userName).once('value')
+		.then(function(snapshot){
+			var date = snapshot.child("date").val();
+			var journal = snapshot.child("journal").val();
+
+			printJournal(date, journal, "prev-entries");
 	});
+	// firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+	//   var username = snapshot.val().username;
 });

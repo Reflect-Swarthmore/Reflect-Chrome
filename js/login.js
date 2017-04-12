@@ -16,11 +16,15 @@ function initApp() {
       document.getElementById('login').textContent = 'Sign out';
       document.getElementById('welcome-msg').textContent = 'WELCOME!';
       document.getElementById('welcome-usr').textContent = JSON.stringify(displayName);
+      document.getElementById('myBtn').disabled = false;
+      document.getElementById('draft').disabled = false;
     } else {
       // Let's try to get a Google auth token programmatically.
       document.getElementById('login').textContent = 'Sign-in with Google';
       document.getElementById('welcome-msg').textContent = '';
       document.getElementById('welcome-usr').textContent = '';
+      document.getElementById('myBtn').disabled = true;
+      document.getElementById('draft').disabled = true;
     }
     document.getElementById('login').disabled = false;
   });
