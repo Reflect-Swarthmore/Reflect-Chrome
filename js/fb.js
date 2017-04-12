@@ -62,23 +62,30 @@ document.getElementById('UPrompt').addEventListener("click", function(){
 
 //printing journal entries to right col
 function printJournal(text, item){
+	// create panel container
 	var p = document.createElement("div");
-	var node = document.createTextNode(text);
-	p.appendChild(node);
-	p.class = "panel panel-default";
+	p.setAttribute("class", "panel panel-default");
+	// panel heading
+	var p_head = document.createElement("div");
+	p_head.setAttribute("class", "panel panel-heading");
+	// panel body
+	var p_body = document.createElement("div");
+	p_body.setAttribute("class", "panel panel-body");
+	// panel body's text
+	var p_body_text = document.createTextNode(text);
+
+	//putting panel together and adding to HTML
+	p.appendChild(p_head);
+	p_body.appendChild(p_body_text);
+	p.appendChild(p_body);
 	document.getElementById(item).appendChild(p);
 
-	// <div class="panel panel-default">
-	//   <div class="panel-heading">Panel Heading</div>
-	//   <div class="panel-body">Panel Content</div>
-	// </div>
 }
 document.getElementById('previous').addEventListener("click", function(){
-// 	var user = firebase.auth().currentUser;
-// 	var userId = firebase.database().ref("user/"+user.displayName);
-// 	// firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-// 	//   // var username = snapshot.val().username;
+	var user = firebase.auth().currentUser;
+	var userId = firebase.database().ref("user/"+user.displayName);
+	firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+	  var username = snapshot.val().username;
 		printJournal("some text", "prev-entries");
-// 	//   // ...
-// 	// });
+	});
 });
