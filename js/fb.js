@@ -1,8 +1,14 @@
+// fb.js is hadnling the button functions
+// This handles the submit and themes button
+
+//this functions is the listener for the submit button
 function submitEntry(){
+	//it gets the user from the firebase database
 	var user = firebase.auth().currentUser;
+	//it gets the journal entry and date in order to add it to the database under the user
 	firebase.database().ref('users/' + JSON.stringify(user, ['displayName']) ).set(
 														{ journal:	document.getElementById('inputText').value,
-																date: document.getElementById('date').textContent
+														  date: document.getElementById('date').textContent
 														}
 												);
 }
