@@ -24,6 +24,9 @@ $(document).ready(function(){
 function newBackground(location){
 	document.body.style.backgroundImage = location;
 }
+
+
+
 /* mouseover event changes background to preview
 	 mouseout changes the background image back to current
  */
@@ -52,7 +55,30 @@ document.getElementById('sunset').addEventListener("click", function(){
 });
 
 
-//click listeners - this change will give the user a prompt if they click designated button
+//click listeners - this will print previous journal entry to a given element
 document.getElementById('UPrompt').addEventListener("click", function(){
 	document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
+});
+
+//printing journal entries to right col
+function printJournal(text, item){
+	var p = document.createElement("div");
+	var node = document.createTextNode(text);
+	p.appendChild(node);
+	p.class = "panel panel-default";
+	document.getElementById(item).appendChild(p);
+
+	// <div class="panel panel-default">
+	//   <div class="panel-heading">Panel Heading</div>
+	//   <div class="panel-body">Panel Content</div>
+	// </div>
+}
+document.getElementById('previous').addEventListener("click", function(){
+// 	var user = firebase.auth().currentUser;
+// 	var userId = firebase.database().ref("user/"+user.displayName);
+// 	// firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+// 	//   // var username = snapshot.val().username;
+		printJournal("some text", "prev-entries");
+// 	//   // ...
+// 	// });
 });

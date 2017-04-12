@@ -14,13 +14,11 @@ function initApp() {
       var uid = user.uid;
       var providerData = user.providerData;
       document.getElementById('login').textContent = 'Sign out';
-      document.getElementById('sign-in-status').textContent = 'Signed in';
       document.getElementById('welcome-msg').textContent = 'WELCOME!';
       document.getElementById('welcome-usr').textContent = JSON.stringify(displayName);
     } else {
       // Let's try to get a Google auth token programmatically.
       document.getElementById('login').textContent = 'Sign-in with Google';
-      document.getElementById('sign-in-status').textContent = 'Signed out';
       document.getElementById('welcome-msg').textContent = '';
       document.getElementById('welcome-usr').textContent = '';
     }

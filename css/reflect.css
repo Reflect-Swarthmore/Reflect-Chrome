@@ -70,7 +70,9 @@ li{
   display: block;
   margin-left: auto;
   margin-right: auto;
-
+}
+#prev-entries{
+  
 }
 .journal-buttons {
   margin-top: 10mm;
