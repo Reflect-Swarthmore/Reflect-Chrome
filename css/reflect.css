@@ -65,6 +65,13 @@ li{
   margin-left: auto;
   margin-right: auto;
 }
+#previous{
+  margin-top: 40mm;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
 .journal-buttons {
   margin-top: 10mm;
   text-align: center;
