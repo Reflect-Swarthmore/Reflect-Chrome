@@ -50,3 +50,9 @@ document.getElementById('sunset').addEventListener("click", function(){
 	current = "url(../images/sunset.png)";
 	newBackground(current);
 });
+
+
+//click listeners - this change will give the user a prompt if they click designated button
+document.getElementById('UPrompt').addEventListener("click", function(){
+	document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
+});
