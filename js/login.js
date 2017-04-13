@@ -13,28 +13,30 @@ function initApp() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      document.getElementById('login').textContent = 'Sign out';
       document.getElementById('welcome-msg').textContent = 'WELCOME!';
+      document.getElementById('login').style.display = "none";
       document.getElementById('welcome-usr').textContent = JSON.stringify(displayName);
-      document.getElementById('myBtn').disabled = false;
-      document.getElementById('draft').disabled = false;
-      document.getElementById('myBtn').style.display = "initial";
-      document.getElementById('draft').style.display = "initial";
-      document.getElementById('inputText').style.display = "initial";
+      document.getElementById('journal-entry').setAttribute("class", "collapse in");
+
     } else {
       // Let's try to get a Google auth token programmatically.
+      document.getElementById('login').style.display = "inherit";
       document.getElementById('login').textContent = 'Sign-in with Google';
       document.getElementById('welcome-msg').textContent = '';
       document.getElementById('welcome-usr').textContent = '';
-      document.getElementById('myBtn').style.display = "none";
-      document.getElementById('draft').style.display = "none";
-      document.getElementById('inputText').style.display = "none";
+
+      document.getElementById('journal-entry').setAttribute("class", "collapse");
     }
     document.getElementById('login').disabled = false;
   });
   document.getElementById('login').addEventListener('click', startSignIn, false);
 }
-
+/**
+  starts the logout process
+ */
+ document.getElementById('logout').addEventListener("click", function(){
+   firebase.auth().signOut();
+ });
 /**
  * Starts the sign-in process.
  */

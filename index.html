@@ -34,12 +34,13 @@
 								<!-- creates a dropwdown menu -->
 							  <div class="dropdown">
 									<!-- button styles  -->
-							    <button id="themes" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Themes
+							    <button id="themes" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
 							    <span class="caret"></span></button>
 									<!-- categories of the menu -->
 									<ul class="dropdown-menu">
 							      <li id="mountains"><a href="#">Mountains</a></li>
 							      <li id="sunset">   <a href="#">Sunset</a></li>
+										<li id="logout"><a href="#">Logout</a></li>
 							    </ul>
 							  </div>
 							</div>
@@ -52,17 +53,17 @@
 							<div id="subtitle">on today</div></h1>
 							<h2 id="date"> Some day  </h2>
 						<!-- welcoming message to the user that is changed when user logs in -->
-						<div class="journal-entry">
+						<div id="journal-entry" class=collapse>
 							<div id="welcome-msg"></div>
 							<div id="welcome-usr"></div>
 							<!-- this is the text box where user types entry -->
 							<textarea class="form-control" rows="3" id="inputText" placeholder="Write about your day"></textarea>
-						</div>
-						<!-- two buttons: one to save a draft and other to submit -->
-						<div class="journal-buttons">
-							<button id = "draft" type="button" class="btn btn-primary" >Save draft</button>
-							<button id = "myBtn" type="button" class="btn btn-primary"  >Submit</button>
-						</div>
+							<!-- two buttons: one to save a draft and other to submit -->
+							<div id="journal-buttons">
+								<button id = "draft" type="button" class="btn btn-primary" >Save draft</button>
+								<button id = "myBtn" type="button" class="btn btn-primary"  >Submit</button>
+							</div>
+					</div>
 						<!-- Login button -->
 						<button id = "login" type="button" class="btn btn-primary" >LOGIN</button>
 						<script src="js/login.js"></script>

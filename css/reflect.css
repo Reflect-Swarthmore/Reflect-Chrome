@@ -9,7 +9,7 @@ h1{
 	font-family: "Century Gothic", sans-serif;
 	color: #0056b3;
 }
-h2, .bgicons, .journal-entry{
+h2, .bgicons, #journal-entry{
   text-align: center;
   font-size: 30px;
   font-family: "Century Gothic", sans-serif;
@@ -72,9 +72,9 @@ li{
   margin-right: auto;
 }
 #prev-entries{
-  
+
 }
-.journal-buttons {
+#journal-buttons {
   margin-top: 10mm;
   text-align: center;
 }

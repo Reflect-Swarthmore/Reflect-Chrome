@@ -6,7 +6,7 @@ function submitEntry(){
 	//it gets the user from the firebase database
 	var user = firebase.auth().currentUser;
 	//it gets the journal entry and date in order to add it to the database under the user
-	firebase.database().ref('users/' + JSON.stringify(user, ['displayName']) ).set(
+	firebase.database().ref('users/' + user.uid ).push(
 														{ journal:	document.getElementById('inputText').value,
 														  date: document.getElementById('date').textContent
 														}
@@ -33,7 +33,7 @@ function newBackground(location){
  */
 document.getElementById('mountains').addEventListener("mouseover", function(){
 	newBackground("url(../images/mountains.png)");
-});
+});0
 document.getElementById('sunset').addEventListener("mouseover", function(){
 	newBackground("url(../images/sunset.png)");
 });
@@ -86,8 +86,7 @@ function printJournal(heading, text, item){
 }
 document.getElementById('previous').addEventListener("click", function(){
 	var user = firebase.auth().currentUser;
-	var userName = JSON.stringify(user, ['displayName']);
-	firebase.database().ref('users/' + userName).once('value')
+	firebase.database().ref('users/' + user.uid).once('value')
 		.then(function(snapshot){
 			var date = snapshot.child("date").val();
 			var journal = snapshot.child("journal").val();
