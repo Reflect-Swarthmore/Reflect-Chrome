@@ -18,13 +18,17 @@ function initApp() {
       document.getElementById('welcome-usr').textContent = JSON.stringify(displayName);
       document.getElementById('myBtn').disabled = false;
       document.getElementById('draft').disabled = false;
+      document.getElementById('myBtn').style.display = "initial";
+      document.getElementById('draft').style.display = "initial";
+      document.getElementById('inputText').style.display = "initial";
     } else {
       // Let's try to get a Google auth token programmatically.
       document.getElementById('login').textContent = 'Sign-in with Google';
       document.getElementById('welcome-msg').textContent = '';
       document.getElementById('welcome-usr').textContent = '';
-      document.getElementById('myBtn').disabled = true;
-      document.getElementById('draft').disabled = true;
+      document.getElementById('myBtn').style.display = "none";
+      document.getElementById('draft').style.display = "none";
+      document.getElementById('inputText').style.display = "none";
     }
     document.getElementById('login').disabled = false;
   });
