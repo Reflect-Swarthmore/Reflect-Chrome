@@ -19,7 +19,8 @@ h3, .bgicons, #journal-entry{
   text-align: center;
   font-size: 3vw;
   font-family: "Century Gothic", sans-serif;
-  color: #66b0ff;
+  /*color: #66b0ff;*/
+  color: white;
 }
 li{
     display: inline;
@@ -30,6 +31,7 @@ li{
 
 .left-col {
   margin-right: 5%;
+  margin-left: 5%;
   padding-top: 5%;
 }
 
@@ -40,6 +42,7 @@ li{
 
 .right-col {
   margin-left: 5%;
+  margin-right: 5%;
 }
 
 #bgicon{
@@ -89,8 +92,9 @@ li{
 #previous{
   margin-top: 5%;
   display: block;
-  margin-left: auto;
-  margin-right: 5%;
+  float: right;
+  /*margin-left: auto;
+  margin-right: 5%;*/
 }
 #journal-buttons {
   margin-top: 10mm;
