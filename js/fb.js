@@ -58,13 +58,16 @@ document.getElementById('sunset').addEventListener("click", function(){
 
 //click listeners - this will print previous journal entry to a given element
 document.getElementById('UPrompt').addEventListener("click", function(){
-	document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
-});
+	// document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
+	var user = firebase.auth().currentUser;
+	firebase.database().ref('users/' + user.uid).once('value')
+	.then(function(snapshot){
+		var date = snapshot.child("date").val();
+		var journal = snapshot.child("journal").val();
 
-//printing journal entries to right col
-var container = document.createElement("div");
-container.style.height = "800px";
-container.style.overflow = "auto";
+		printJournal(date, journal, "prev-entries-menu");
+	});
+});
 
 function printJournal(heading, text, item){
 	// create panel container
@@ -91,17 +94,22 @@ function printJournal(heading, text, item){
 	//putting panel together and adding to HTML
 	p.appendChild(p_head);
 	p.appendChild(p_body);
-	container.appendChild(p);
-	document.getElementById(item).appendChild(container);
+	document.getElementById(item).appendChild(p);
 
 }
-document.getElementById('previous').addEventListener("click", function(){
-	var user = firebase.auth().currentUser;
-	firebase.database().ref('users/' + user.uid).once('value')
-		.then(function(snapshot){
-			var date = snapshot.child("date").val();
-			var journal = snapshot.child("journal").val();
-
-			printJournal(date, journal, "prev-entries");
+// menu animation/activation for previous journal entries
+var prevMenu = function(){
+	$('#previous').click(function(){
+		$('.prev-menu').animate({
+			right: "0%"
+		}, 200);
 	});
-});
+
+	$('#previous-close').click(function(){
+		$('.prev-menu').animate({
+			right: "-20%"
+		}, 200);
+	});
+}
+// });
+$(document).ready(prevMenu);
