@@ -66,7 +66,12 @@ function printJournal(heading, text, item){
 	// create panel container
 	var p = document.createElement("div");
 	p.setAttribute("class", "panel panel-default");
+	p.setAttribute("data-spy", "scroll");
+
 	p.style.width = "50%";
+	p.style.display = "block";
+	p.style.margin = "auto";
+	p.style.marginTop = "5mm";
 	// panel heading
 	var p_head = document.createElement("div");
 	p_head.setAttribute("class", "panel panel-heading");
