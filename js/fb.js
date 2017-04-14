@@ -62,11 +62,14 @@ document.getElementById('UPrompt').addEventListener("click", function(){
 });
 
 //printing journal entries to right col
+var container = document.createElement("div");
+container.style.height = "800px";
+container.style.overflow = "auto";
+
 function printJournal(heading, text, item){
 	// create panel container
 	var p = document.createElement("div");
 	p.setAttribute("class", "panel panel-default");
-	p.setAttribute("data-spy", "scroll");
 
 	p.style.width = "50%";
 	p.style.display = "block";
@@ -88,7 +91,9 @@ function printJournal(heading, text, item){
 	//putting panel together and adding to HTML
 	p.appendChild(p_head);
 	p.appendChild(p_body);
-	document.getElementById(item).appendChild(p);
+	container.appendChild(p);
+	document.getElementById(item).appendChild(container);
+
 }
 document.getElementById('previous').addEventListener("click", function(){
 	var user = firebase.auth().currentUser;
@@ -99,6 +104,4 @@ document.getElementById('previous').addEventListener("click", function(){
 
 			printJournal(date, journal, "prev-entries");
 	});
-	// firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-	//   var username = snapshot.val().username;
 });
