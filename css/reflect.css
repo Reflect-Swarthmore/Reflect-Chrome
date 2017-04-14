@@ -1,17 +1,23 @@
 body {
-    background-image: url("../images/mountains.png");
-    background-size: 100%
+    background: url("../images/mountains.png") no-repeat center center fixed;
+    background-size: cover;
 }
 
 h1{
 	text-align: center;
-	font-size: 100px;
+	/*font-size: 100px;*/
+  font-size: 7vw;
 	font-family: "Century Gothic", sans-serif;
 	color: #0056b3;
 }
-h2, .bgicons, #journal-entry{
+
+h2{
   text-align: center;
-  font-size: 30px;
+  font-size: 7vw;
+}
+h3, .bgicons, #journal-entry{
+  text-align: center;
+  font-size: 3vw;
   font-family: "Century Gothic", sans-serif;
   color: #66b0ff;
 }
@@ -21,6 +27,21 @@ li{
 .form-control{
   background-color: rgba(230, 242, 255, 0.75);
 }
+
+.left-col {
+  margin-right: 5%;
+  padding-top: 5%;
+}
+
+.mid-col {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.right-col {
+  margin-left: 5%;
+}
+
 #bgicon{
 	width: 40px;
 	height: 20px;
@@ -66,10 +87,10 @@ li{
   margin-right: auto;
 }
 #previous{
-  margin-top: 10mm;
+  margin-top: 5%;
   display: block;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 5%;
 }
 #journal-buttons {
   margin-top: 10mm;
