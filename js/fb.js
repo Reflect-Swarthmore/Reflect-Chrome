@@ -60,13 +60,13 @@ document.getElementById('sunset').addEventListener("click", function(){
 document.getElementById('UPrompt').addEventListener("click", function(){
 	// document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
 	var user = firebase.auth().currentUser;
+    var date, journal; 
 	firebase.database().ref('users/' + user.uid).once('value')
 	.then(function(snapshot){
-		var date = snapshot.child("date").val();
-		var journal = snapshot.child("journal").val();
-
-		printJournal(date, journal, "prev-entries-menu");
+		date = snapshot.child("date").val();
+		journal = snapshot.child("journal").val();
 	});
+    printJournal(date, journal, "prev-entries");
 });
 
 function printJournal(heading, text, item){
@@ -74,7 +74,7 @@ function printJournal(heading, text, item){
 	var p = document.createElement("div");
 	p.setAttribute("class", "panel panel-default");
 
-	p.style.width = "50%";
+	p.style.width = "75%";
 	p.style.display = "block";
 	p.style.margin = "auto";
 	p.style.marginTop = "5mm";
@@ -99,16 +99,39 @@ function printJournal(heading, text, item){
 }
 // menu animation/activation for previous journal entries
 var prevMenu = function(){
+      // Callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#previous" ).removeAttr( "style" ).hide().fadeIn();
+      }, 200 );
+    };
+    
 	$('#previous').click(function(){
 		$('.prev-menu').animate({
 			right: "0%"
 		}, 200);
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // Most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 50 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 200, height: 60 } };
+      }
+ 
+      // Run the effect
+      $( "#previous" ).hide( selectedEffect, options, 1000);
+      
 	});
 
 	$('#previous-close').click(function(){
 		$('.prev-menu').animate({
 			right: "-20%"
 		}, 200);
+        callback();
 	});
 }
 // });
