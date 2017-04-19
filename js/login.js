@@ -13,11 +13,9 @@ function initApp() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      document.getElementById('welcome-msg').textContent = 'WELCOME!';
       document.getElementById('login').style.display = "none";
-      document.getElementById('welcome-usr').textContent = JSON.stringify(displayName);
-      document.getElementById('journal-entry').setAttribute("class", "collapse in");
-
+      // document.getElementById('journal-entry').setAttribute("class", "collapse in");
+      welcomeScene(displayName);
     } else {
       // Let's try to get a Google auth token programmatically.
       document.getElementById('login').style.display = "inherit";
@@ -78,3 +76,20 @@ function startAuth(interactive) {
  window.onload = function() {
   initApp();
 };
+function welcomeScene(name){
+  $("#welcome-msg").hide();
+  $("#welcome-usr").hide();
+  document.getElementById('welcome-msg').textContent = 'WELCOME!';
+  document.getElementById('welcome-usr').textContent = name;
+  setTimeout(function(){
+    $( "#welcome-msg" ).removeAttr( "style" ).hide().fadeIn(1500);
+    $( "#welcome-usr" ).removeAttr( "style" ).hide().fadeIn(1500);
+  }, 0 );
+  setTimeout(function(){
+    $( "#welcome-msg" ).removeAttr( "style" ).fadeOut(500); //.fadeOut(2500);
+    $( "#welcome-usr" ).removeAttr( "style" ).fadeOut(500); //.fadeOut(2500);
+  }, 1500 );
+  setTimeout(function(){
+    document.getElementById('journal-entry').setAttribute("class", "collapse in");
+  }, 2500);
+}

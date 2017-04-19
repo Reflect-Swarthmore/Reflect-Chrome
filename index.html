@@ -53,11 +53,17 @@
 						<div class="mid-col">
 						<!-- These are the headings of the website -->
 						<h1> reflect </h1>
+
 							<h2 id="date"> Some day  </h2>
+
+							<!-- <h2 id="subtitle">on today</h2> -->
 						<!-- welcoming message to the user that is changed when user logs in -->
-						<div id="journal-entry" class=collapse>
+						<div class="welcome">
 							<div id="welcome-msg"></div>
 							<div id="welcome-usr"></div>
+						</div>
+						<div id="journal-entry" class=collapse>
+							<h3 id="date"> Some day  </h3>
 							<!-- this is the text box where user types entry -->
 							<textarea class="form-control" rows="7" id="inputText" placeholder="Write about your day"></textarea>
 							<!-- two buttons: one to save a draft and other to submit -->
@@ -67,7 +73,7 @@
 							</div>
 					</div>
 						<!-- Login button -->
-						<button id = "login" type="button" class="btn btn-primary" >LOGIN</button>
+						<button id = "login" type="button" class="btn btn-primary">LOGIN</button>
 						<script src="js/login.js"></script>
 						</div>
 					</div>
@@ -76,22 +82,18 @@
 					<!-- Right column division -->
 					<div class="col-xs-3 col-md-3">
 						<div class="right-col">
-						<!-- This button gives the user prompts to reflect about -->
-						<button id = "UPrompt" type="button" class ="btn btn-default">DEFAULT</button>
-						<script src= "js/fb.js"></script>
-							<div id="Prompt-for-user">This button will do something </div>
-						<!-- Previous journal entries -->
-						<div id="prev-entries">
-							<button id = "previous" type="button" class="btn btn-primary" >Previous Entries</button>
-							<button id = "previous-close" type="button" class="btn btn-primary" >Close Entries</button>
-							<div class="prev-menu">
-								<ul id="prev-entries-menu" class="nav nav-bar" >
-								</ul>
-								<script src="js/fb.js"></script>
-							</div>
-					</div>
-				</div>
-				</div>
+	            <!-- This button gives the user prompts to reflect about -->
+	            <button id = "UPrompt" type="button" class ="btn btn-default">DEFAULT</button>
+	            <script src= "js/fb.js"></script>
+	                <div id="Prompt-for-user">This button will do something </div>
+	            <!-- Previous journal entries -->
+	            <button id = "previous" type="button" class="btn btn-primary" >Previous Entries</button>
+	            <div id="prev-entries" class="prev-menu">
+	                <button id = "previous-close" type="button" class="btn btn-primary" > X</button>
+	            </div>
+	            <script src="js/fb.js"></script>
+		       </div>
+			   </div>
 			</div>
 		</div>
 
