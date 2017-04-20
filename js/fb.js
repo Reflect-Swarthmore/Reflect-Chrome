@@ -60,12 +60,13 @@ document.getElementById('sunset').addEventListener("click", function(){
 document.getElementById('UPrompt').addEventListener("click", function(){
 	// document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
 	var user = firebase.auth().currentUser;
-  var date, journal;
-	firebase.database().ref('users/' + user.uid).once('value').then(function(snapshot){
-				date = snapshot.child("date").val();
-				journal = snapshot.child("journal").val();
+    var date, journal;
+	firebase.database().ref('users/' + user.uid).once('value')
+	.then(function(snapshot){
+		date = snapshot.child("date").val();
+		journal = snapshot.child("journal").val();
 	});
-  printJournal(date, journal, "prev-entries");
+    printJournal(date, journal, "prev-entries");
 });
 
 function printJournal(heading, text, item){
