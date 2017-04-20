@@ -12,10 +12,12 @@ h1{
 	color: #0056b3;
 }
 
-h2{
+h2, .bgicons, #journal-entry{
+{
   text-align: center;
   font-size: 7vw;
 }
+
 h3, .bgicons, #journal-entry, .welcome{
   margin-top:10%;
   text-align: center;
