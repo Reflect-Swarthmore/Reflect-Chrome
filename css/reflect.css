@@ -61,9 +61,6 @@ li{
 #text-box{
 	text-align: center;
 }
-#entry_name{
-
-}
 #entry_box{
 	border: 1px solid #0056b3;
 	border-radius: 8px;
@@ -76,16 +73,8 @@ li{
 #entry_name{
   height: 25px;
 }
-
-
 #submit_button{
 	width: 400px;
-}
-
-#myBtn{
-  /*margin-left: auto;*/
-  /*display: block;*/
-  /*margin-right: auto;*/
 }
 #login{
   display: block;
@@ -93,7 +82,7 @@ li{
   margin-left: auto;
   margin-right: auto;
 }
-#previous, #previous-close{
+#previous{
   margin-top: 5%;
   display: block;
   background-color: rgba(255, 255, 255, 0.75);
@@ -103,8 +92,8 @@ li{
 #previous-close{
     float: left;
     padding: 10px;
-    margin-top: 0%;
-    margin-bottom: 1%;
+    /*margin-top: 0%;
+    margin-bottom: 1%;*/
 }
 #journal-buttons {
   margin-top: 10mm;

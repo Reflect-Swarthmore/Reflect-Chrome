@@ -15,6 +15,7 @@ function submitEntry(){
 }
 document.getElementById('myBtn').onclick = submitEntry;
 
+
 //background change functionality
 var current = document.body.style.backgroundImage; //this is to allow for previews of other themes
 
@@ -54,19 +55,23 @@ document.getElementById('sunset').addEventListener("click", function(){
 	current = "url(../images/sunset.png)";
 	newBackground(current);
 });
-
+document.getElementById('UPrompt').addEventListener("click", function(){
+	document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
+});
 
 //click listeners - this will print previous journal entry to a given element
-document.getElementById('UPrompt').addEventListener("click", function(){
-	// document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
+document.getElementById('previous').addEventListener("click", function(){
 	var user = firebase.auth().currentUser;
     var date, journal;
 	firebase.database().ref('users/' + user.uid).once('value')
 	.then(function(snapshot){
-		date = snapshot.child("date").val();
-		journal = snapshot.child("journal").val();
+		snapshot.forEach(function(childSnapshot){
+
+			date = childSnapshot.child("date").val();
+			journal = childSnapshot.child("journal").val();
+			printJournal(date, journal, "#previous-close");
+		});
 	});
-    printJournal(date, journal, "prev-entries");
 });
 
 function printJournal(heading, text, item){
@@ -74,10 +79,11 @@ function printJournal(heading, text, item){
 	var p = document.createElement("div");
 	p.setAttribute("class", "panel panel-default");
 
-	p.style.width = "75%";
+	p.style.width = "100%";
 	p.style.display = "block";
 	p.style.margin = "auto";
 	p.style.marginTop = "5mm";
+	p.style.marginRight = "auto";
 	// panel heading
 	var p_head = document.createElement("div");
 	p_head.setAttribute("class", "panel panel-heading");
@@ -94,8 +100,8 @@ function printJournal(heading, text, item){
 	//putting panel together and adding to HTML
 	p.appendChild(p_head);
 	p.appendChild(p_body);
-	document.getElementById(item).appendChild(p);
-
+	// document.getElementById(item).appendChild(p);
+	$(item).after(p);
 }
 // menu animation/activation for previous journal entries
 var prevMenu = function(){
