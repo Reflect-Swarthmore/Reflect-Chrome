@@ -1,3 +1,5 @@
+
+var hasDraft = false;
 function initApp() {
   // Listen for auth state changes.
   var date = new Date();
@@ -16,6 +18,15 @@ function initApp() {
       document.getElementById('login').style.display = "none";
       // document.getElementById('journal-entry').setAttribute("class", "collapse in");
       welcomeScene(displayName);
+      firebase.database().ref('users/' + user.uid + '/draft/').once('value')
+        .then(function(snapshot){
+          var activeDraft = snapshot.child("isActive").val();
+          var journal = snapshot.child("journal").val();
+          if (activeDraft == "true"){
+            document.getElementById('draft').textContent = "Open draft";
+            hasDraft = true;
+          }
+        });
     } else {
       // Let's try to get a Google auth token programmatically.
       document.getElementById('login').style.display = "inherit";

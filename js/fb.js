@@ -1,3 +1,19 @@
+//**************************************************************************
+//	This javascript file is the main functionality of the chrome extension
+//	Authors: Miguel Gutierrez
+//
+
+
+//**************************************************************************
+//
+//
+//								JOURNAL BUTTONS
+//
+//
+//**************************************************************************
+
+// var savedDraft = false;
+
 // fb.js is hadnling the button functions
 // This handles the submit and themes button
 
@@ -6,7 +22,7 @@ function submitEntry(){
 	//it gets the user from the firebase database
 	var user = firebase.auth().currentUser;
 	//it gets the journal entry and date in order to add it to the database under the user
-	firebase.database().ref('users/' + user.uid ).push(
+	firebase.database().ref('users/' + user.uid + '/entries').push(
 														{ journal:	document.getElementById('inputText').value,
 														  date: document.getElementById('date').textContent
 														}
@@ -16,6 +32,37 @@ function submitEntry(){
 document.getElementById('myBtn').onclick = submitEntry;
 
 
+
+function saveDraftEntry(){
+	var user = firebase.auth().currentUser;
+	if (!hasDraft){
+		//it gets the user from the firebase database
+		//it gets the journal entry and date in order to add it to the database under the user
+		firebase.database().ref('users/' + user.uid + '/draft').set(
+															{ journal:	document.getElementById('inputText').value,
+															  isActive: true
+															}
+													);
+			document.getElementById('inputText').value = "";
+			document.getElementById('draft').textContent = "Open draft";
+			hasDraft = true;
+		}
+		else{
+			firebase.database().ref('users/' + user.uid + '/draft/').once('value')
+				.then(function(snapshot){
+					// var activeDraft = snapshot.child("isActive").val();
+					var journal = snapshot.child("journal").val();
+					// if (activeDraft == "true"){
+						document.getElementById('inputText').value = journal;
+						document.getElementById('draft').textContent = "Save draft";
+						// hasDraft = true;
+					// }
+					hasDraft = false; 
+				});
+
+		}
+}
+document.getElementById('draft').onclick = saveDraftEntry;
 
 //**************************************************************************
 //
@@ -82,7 +129,7 @@ document.getElementById('previous').addEventListener("click", function(){
 	  var date, journal;
 		// this references into FireBase list of users and into the specific user
 		//the 'value' parameter gets all the entries under the user
-		firebase.database().ref('users/' + user.uid).once('value')
+		firebase.database().ref('users/' + user.uid + '/entries/').once('value')
 			.then(function(snapshot){
 				//snapshot is a sub-database with all the user entries and the
 				// forEach() function iterates through every entry under user.userID
