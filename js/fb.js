@@ -16,6 +16,15 @@ function submitEntry(){
 document.getElementById('myBtn').onclick = submitEntry;
 
 
+
+//**************************************************************************
+//
+//
+//								SETTINGS MENU
+//
+//
+//**************************************************************************
+
 //background change functionality
 var current = document.body.style.backgroundImage; //this is to allow for previews of other themes
 
@@ -26,8 +35,6 @@ $(document).ready(function(){
 function newBackground(location){
 	document.body.style.backgroundImage = location;
 }
-
-
 
 /* mouseover event changes background to preview
 	 mouseout changes the background image back to current
@@ -59,31 +66,51 @@ document.getElementById('UPrompt').addEventListener("click", function(){
 	document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
 });
 
-//click listeners - this will print previous journal entry to a given element
-document.getElementById('previous').addEventListener("click", function(){
-	var user = firebase.auth().currentUser;
-    var date, journal;
-	firebase.database().ref('users/' + user.uid).once('value')
-	.then(function(snapshot){
-		snapshot.forEach(function(childSnapshot){
+//**************************************************************************
+//
+//
+//								PREVIOUS JOURNAL ENTRIES SIDEBAR
+//
+//
+//**************************************************************************
+var initialized = false;
 
-			date = childSnapshot.child("date").val();
-			journal = childSnapshot.child("journal").val();
-			printJournal(date, journal, "#previous-close");
+//This will print previous journal entry to a given element
+document.getElementById('previous').addEventListener("click", function(){
+	if (!initialized){
+		var user = firebase.auth().currentUser; //this pulls the firebase user
+	  var date, journal;
+		// this references into FireBase list of users and into the specific user
+		//the 'value' parameter gets all the entries under the user
+		firebase.database().ref('users/' + user.uid).once('value')
+			.then(function(snapshot){
+				//snapshot is a sub-database with all the user entries and the
+				// forEach() function iterates through every entry under user.userID
+				snapshot.forEach(function(childSnapshot){
+					date = childSnapshot.child("date").val();
+					journal = childSnapshot.child("journal").val();
+					//call printJournal to print a  window after the #previous-close item
+					printJournal(date, journal, "#previous-close");
+			});
 		});
-	});
+		// set initialized to true in order to prevent printing all the journals
+		// every time the bar opens
+		initialized = true;
+  }
 });
 
+// printJournal - prints a single entry on to the given html item
 function printJournal(heading, text, item){
 	// create panel container
 	var p = document.createElement("div");
+	// stylize it
 	p.setAttribute("class", "panel panel-default");
-
 	p.style.width = "100%";
 	p.style.display = "block";
 	p.style.margin = "auto";
 	p.style.marginTop = "5mm";
 	p.style.marginRight = "auto";
+
 	// panel heading
 	var p_head = document.createElement("div");
 	p_head.setAttribute("class", "panel panel-heading");
@@ -103,42 +130,25 @@ function printJournal(heading, text, item){
 	// document.getElementById(item).appendChild(p);
 	$(item).after(p);
 }
-// menu animation/activation for previous journal entries
-var prevMenu = function(){
-      // Callback function to bring a hidden box back
-    function callback() {
-      setTimeout(function() {
-        $( "#previous" ).removeAttr( "style" ).hide().fadeIn();
-      }, 200 );
-    };
 
+// prevMenu - open/close animation for previous journal entries
+var prevMenu = function(){
 	$('#previous').click(function(){
+		//slides in the entries menu
 		$('.prev-menu').animate({
 			right: "0%"
 		}, 200);
-      // get effect type from
-      var selectedEffect = $( "#effectTypes" ).val();
-
-      // Most effect types need no options passed by default
-      var options = {};
-      // some effects have required parameters
-      if ( selectedEffect === "scale" ) {
-        options = { percent: 50 };
-      } else if ( selectedEffect === "size" ) {
-        options = { to: { width: 200, height: 60 } };
-      }
-
-      // Run the effect
-      $( "#previous" ).hide( selectedEffect, options, 1000);
-
+		//hides the previous button
+    $( "#previous" ).hide();
 	});
-
 	$('#previous-close').click(function(){
+		//slides out the entries menu
 		$('.prev-menu').animate({
 			right: "-20%"
 		}, 200);
-        callback();
+		// fades in the previous button
+		$( "#previous" ).removeAttr( "style" ).hide().fadeIn(500);
 	});
 }
-// });
+
 $(document).ready(prevMenu);
