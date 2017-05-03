@@ -1,8 +1,6 @@
 //**************************************************************************
 //	This javascript file is the main functionality of the chrome extension
 //	Authors: Miguel Gutierrez
-//
-
 
 //**************************************************************************
 //
@@ -11,8 +9,6 @@
 //
 //
 //**************************************************************************
-
-// var savedDraft = false;
 
 // fb.js is hadnling the button functions
 // This handles the submit and themes button
