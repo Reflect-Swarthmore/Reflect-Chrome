@@ -1,10 +1,10 @@
 
-var hasDraft = false;
+var hasDraft;
 function initApp() {
   // Listen for auth state changes.
   var date = new Date();
   document.getElementById('date').textContent = date.toDateString();
-
+  hasDraft = false;
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -22,7 +22,7 @@ function initApp() {
         .then(function(snapshot){
           var activeDraft = snapshot.child("isActive").val();
           var journal = snapshot.child("journal").val();
-          if (activeDraft == "true"){
+          if (activeDraft == true){
             document.getElementById('draft').textContent = "Open draft";
             hasDraft = true;
           }

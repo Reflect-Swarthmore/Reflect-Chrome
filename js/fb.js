@@ -52,12 +52,12 @@ function saveDraftEntry(){
 				.then(function(snapshot){
 					// var activeDraft = snapshot.child("isActive").val();
 					var journal = snapshot.child("journal").val();
-					// if (activeDraft == "true"){
+					// if (activeDraft == true){
 						document.getElementById('inputText').value = journal;
 						document.getElementById('draft').textContent = "Save draft";
 						// hasDraft = true;
 					// }
-					hasDraft = false; 
+					hasDraft = false;
 				});
 
 		}
