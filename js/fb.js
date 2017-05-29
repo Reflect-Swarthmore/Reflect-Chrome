@@ -105,9 +105,6 @@ document.getElementById('sunset').addEventListener("click", function(){
 	current = "url(../images/sunset.png)";
 	newBackground(current);
 });
-document.getElementById('UPrompt').addEventListener("click", function(){
-	document.getElementById('Prompt-for-user').textContent = "Hopefully it changes";
-});
 
 //**************************************************************************
 //
@@ -174,8 +171,8 @@ function printJournal(heading, text, item){
 	$(item).after(p);
 }
 
-// prevMenu - open/close animation for previous journal entries
-var prevMenu = function(){
+// menu - open/close animation for previous journal entries
+var menuAnim = function(){
 	$('#previous').click(function(){
 		//slides in the entries menu
 		$('.prev-menu').animate({
@@ -192,6 +189,24 @@ var prevMenu = function(){
 		// fades in the previous button
 		$( "#previous" ).removeAttr( "style" ).hide().fadeIn(500);
 	});
+	$('#menu-button').click(function(){
+		//slides in the entries menu
+		$('#menu-contents').animate({
+			left: "0%"
+		}, 200);
+		//hides the menu-contents button
+    $( "#menu-button" ).hide();
+	});
+	$('#menu-close').click(function(){
+		//slides out the entries menu
+		$('#menu-contents	').animate({
+			left: "-20%"
+		}, 200);
+		// fades in the previous button
+		$( "#menu-button" ).removeAttr( "style" ).hide().fadeIn(500);
+	});
+
+
 }
 
-$(document).ready(prevMenu);
+$(document).ready(menuAnim);

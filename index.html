@@ -23,7 +23,6 @@
 	<body>
 		<header>
 		</header>
-
 		<main>
 			<!-- setting up layout -->
 			<div class="container-fluid">
@@ -32,21 +31,33 @@
 
 					  <!-- diving the page by three, this is the left column  -->
 					  <div class="col-xs-3 col-md-3">
-							<div class="left-col">
-								<!-- creates a dropwdown menu -->
-							  <div class="dropdown">
-									<!-- button styles  -->
-							    <button id="settings" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
-							    <span class="caret"></span></button>
-									<!-- categories of the menu -->
-									<ul class="dropdown-menu">
-							      <li id="mountains"><a href="#">Mountains</a></li>
-							      <li id="sunset">   <a href="#">Sunset</a></li>
-										<li id="logout"><a href="#">Logout</a></li>
-							    </ul>
-							  </div>
-							</div>
-							</div>
+
+								<button id="menu-button" type="button" class="btn btn-default btn">
+			          	<span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+								</button>
+								<div id="menu-contents">
+									<button id="menu-close" type="button" class="btn btn-default btn">X
+									</button>
+										<!-- button styles  -->
+										<div class="panel-group">
+									    <div class="panel panel-default">
+									      <div class="panel-heading">
+									        <h4 class="panel-title">
+									          <a id="settings" data-toggle="collapse" href="#collapse1">Themes</a>
+									        </h4>
+									      </div>
+									      <div id="collapse1" class="panel-collapse collapse">
+									        <ul class="list-group">
+														<li class="list-group-item"id="mountains"><a href="#">Mountains</a></li>
+														<li class="list-group-item"id="sunset">   <a href="#">Sunset</a></li>
+														<li class="list-group-item"id="logout"><a href="#">Logout</a></li>
+									        </ul>
+									      </div>
+									    </div>
+									  </div>
+
+								</div>
+						</div>
 
 					<!-- middle column division -->
 					<div class="col-xs-6 col-md-6">
@@ -74,14 +85,10 @@
 						<script src="js/login.js"></script>
 						</div>
 					</div>
-					<script src="js/fb.js"></script>
 
 					<!-- Right column division -->
 					<div class="col-xs-3 col-md-3">
 						<div class="right-col">
-	            <!-- This button gives the user prompts to reflect about -->
-	            <button id = "UPrompt" type="button" class ="btn btn-default">DEFAULT</button>
-                <div id="Prompt-for-user">This button will do something </div>
 	            <!-- Previous journal entries -->
 	            <button id = "previous" type="button" class="btn btn-primary" >Previous Entries</button>
 	            <div id="prev-entries" class="prev-menu">

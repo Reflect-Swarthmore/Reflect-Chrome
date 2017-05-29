@@ -1,4 +1,3 @@
-
 var hasDraft;
 function initApp() {
   // Listen for auth state changes.
