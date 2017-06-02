@@ -3,11 +3,6 @@ body {
     background-size: cover;
 }
 
-#menu{
-  background: url("../images/hbmenu.svg") no-repeat;
-  height: 35px;
-  width: 35px;
-}
 h1{
 	text-align: center;
   margin-top:5%;
@@ -21,7 +16,7 @@ h2{
   text-align: center;
   font-size: 7vw;
 }
-h3, .bgicons, #journal-entry, .welcome{
+h3, .bgicons, .welcome{
   margin-top:10%;
   text-align: center;
   font-size: 3vw;
@@ -51,6 +46,11 @@ li{
 .right-col {
   margin-left: 5%;
   margin-right: 5%;
+}
+#menu{
+  background: url("../images/hbmenu.svg") no-repeat;
+  height: 35px;
+  width: 35px;
 }
 #bgicon{
 	width: 40px;
@@ -124,4 +124,46 @@ li{
   overflow: auto;
   background-color: rgba(0,0,0, .25);
   clear:both;
+}
+#title{
+  width: 70%;
+}
+#journal-options{
+  height: 50px;
+}
+#title{
+  height: 50px;
+}
+input{
+    border-style: none;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    /*background-color: rgba(0, 0, 0, 0);*/
+}
+input:focus{
+  background-color: rgba(256,256,256, .8);
+}
+#menu-button{
+  background-color: rgba(0,0,0,0);
+  border-style: none;
+}
+#date{
+  border-style: none;
+  padding: 15px;
+  width: 30%;
+  height: 100%;
+  color: black;
+  font-size: 12px;
+  text-align: right;
+  float: right;
+  background-color: rgba(256,256,256, 1);
+
+}
+#inputText{
+  height: 300px;
+  background-color: rgba(255, 255, 255, .6);
+}
+.ql-toolbar{
+  background-color: rgba(255, 255, 255, .6);
 }

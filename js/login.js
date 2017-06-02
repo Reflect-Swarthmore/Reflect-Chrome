@@ -2,7 +2,7 @@ var hasDraft;
 function initApp() {
   // Listen for auth state changes.
   var date = new Date();
-  document.getElementById('date').textContent = date.toDateString();
+  document.getElementById('date').innerHTML = date.toDateString();
   hasDraft = false;
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {

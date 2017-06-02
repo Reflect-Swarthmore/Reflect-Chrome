@@ -9,6 +9,21 @@
 //
 //
 //**************************************************************************
+// var Quill = require('quill');
+var quill = new Quill('#inputText', {
+  modules: {
+    toolbar: [
+      [{ 'font': [] }],
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'align': [] }],
+      ['bold', 'italic', 'underline'],
+      ['image']
+    ]
+  },
+  placeholder: 'Tell us your life story...',
+  theme: 'snow'  // or 'bubble'
+});
+
 
 // fb.js is hadnling the button functions
 // This handles the submit and themes button
@@ -19,7 +34,8 @@ function submitEntry(){
 	var user = firebase.auth().currentUser;
 	//it gets the journal entry and date in order to add it to the database under the user
 	firebase.database().ref('users/' + user.uid + '/entries').push(
-														{ journal:	document.getElementById('inputText').value,
+														{ title: document.getElementById('title').innerHTML,
+                              journal: quill.getContents(),
 														  date: document.getElementById('date').textContent
 														}
 												);
@@ -46,13 +62,9 @@ function saveDraftEntry(){
 		else{
 			firebase.database().ref('users/' + user.uid + '/draft/').once('value')
 				.then(function(snapshot){
-					// var activeDraft = snapshot.child("isActive").val();
 					var journal = snapshot.child("journal").val();
-					// if (activeDraft == true){
 						document.getElementById('inputText').value = journal;
 						document.getElementById('draft').textContent = "Save draft";
-						// hasDraft = true;
-					// }
 					hasDraft = false;
 				});
 
