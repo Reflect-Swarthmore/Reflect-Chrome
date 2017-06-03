@@ -100,7 +100,7 @@ li{
     margin-bottom: 1%;*/
 }
 #journal-buttons {
-  margin-top: 10mm;
+  /*margin-top: 10mm;*/
   text-align: center;
 }
 .caret.caret-up {
@@ -144,10 +144,17 @@ input{
 input:focus{
   background-color: rgba(256,256,256, .8);
 }
+
 #menu-button{
   background-color: rgba(0,0,0,0);
   border-style: none;
 }
+.mbri-menu {
+  font-size: 30px;
+  /*font-weight: bold;*/
+  color: rgba(255, 255, 255, 1)
+}
+
 #date{
   border-style: none;
   padding: 15px;
@@ -162,8 +169,24 @@ input:focus{
 }
 #inputText{
   height: 300px;
+  margin-bottom: 5px;
   background-color: rgba(255, 255, 255, .6);
 }
 .ql-toolbar{
   background-color: rgba(255, 255, 255, .6);
+}
+
+#lock-button {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  margin: 5px;
+}
+.mbri-lock {
+  font-size: 30px;
+  /*font-weight: bold;*/
+  color: rgba(255, 255, 255, 1)
+}
+.mbri-lock:hover {
+  background-image: url("../fonts/mobirise/stle.css/.mbri-unlock");
+  font-weight: bold;
 }
