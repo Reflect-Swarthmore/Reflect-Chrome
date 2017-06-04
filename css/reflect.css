@@ -282,9 +282,9 @@ input:focus{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.3s;
     animation-name: fadeIn;
-    animation-duration: 0.4s
+    animation-duration: 0.3s
 }
 
 /* Modal Content */
@@ -294,9 +294,9 @@ input:focus{
     background-color: #fefefe;
     width: 100%;
     -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 1.5s;
     animation-name: slideIn;
-    animation-duration: 0.4s
+    animation-duration: 1.5s
 }
 
 /* The Close Button */
