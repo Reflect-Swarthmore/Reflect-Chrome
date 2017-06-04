@@ -103,13 +103,13 @@ li{
   text-align: left;
   border-color: gray;
   display: block;
-  padding: 3px;
-  background-color: white;
+  padding: 5;
+  background-color: black;
 }
 .btn-primary{
   background-color: white;
   color: black;
-  border-color: gray;
+  border-color: white;
   /*margin-top: 10mm;*/
   text-align: center;
 }
@@ -184,7 +184,7 @@ input:focus{
 }
 #inputText{
   height: 300px;
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
   background-color: rgba(255, 255, 255, .6);
 }
 .ql-toolbar{
@@ -352,7 +352,8 @@ input:focus{
     to {opacity: 1}
 }
 #past-entries{
-float: right;
+  border: 10px;
+  float: right;
 }
 #lock-button {
   background-color: rgba(0, 0, 0, 0);
@@ -361,10 +362,10 @@ float: right;
 }
 .mbri-lock {
   font-size: 30px;
-  /*font-weight: bold;*/
+  font-weight: bold;
   color: rgba(255, 255, 255, 1)
 }
 .mbri-lock:hover {
-  background-image: url("../fonts/mobirise/stle.css/.mbri-unlock");
+  background-image: url("../fonts/mobirise/style.css/.mbri-unlock");
   font-weight: bold;
 }
