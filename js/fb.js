@@ -10,6 +10,10 @@
 //
 //**************************************************************************
 // var Quill = require('quill');
+var title = new Quill('#title', {
+  placeholder: 'Titulo...',
+  theme: 'bubble'
+});
 var quill = new Quill('#inputText', {
   modules: {
     toolbar: [
@@ -34,7 +38,7 @@ function submitEntry(){
 	var user = firebase.auth().currentUser;
 	//it gets the journal entry and date in order to add it to the database under the user
 	firebase.database().ref('users/' + user.uid + '/entries').push(
-														{ title: document.getElementById('title').innerHTML,
+														{ title: title.getContents(),
                               journal: quill.getContents(),
 														  date: document.getElementById('date').textContent
 														}
@@ -166,6 +170,7 @@ function printJournal(heading, text, item){
 	// panel heading
 	var p_head = document.createElement("div");
 	p_head.setAttribute("class", "panel panel-heading");
+
 	var p_head_text = document.createTextNode(heading);
 	p_head.appendChild(p_head_text);
 
@@ -173,14 +178,20 @@ function printJournal(heading, text, item){
 	var p_body = document.createElement("div");
 	p_body.setAttribute("class", "panel panel-body");
 	// panel body's text
-	var p_body_text = document.createTextNode(text);
+
+  var p_body_text = document.createTextNode(text);
 	p_body.appendChild(p_body_text);
 
 	//putting panel together and adding to HTML
 	p.appendChild(p_head);
 	p.appendChild(p_body);
 	// document.getElementById(item).appendChild(p);
-	$(item).after(p);
+  $(item).after(p);
+  var entry = new Quill(p_body,{
+    theme: 'bubble',
+    readOnly: true
+  });
+  entry.setContents(text);
 }
 
 // menu - open/close animation for previous journal entries

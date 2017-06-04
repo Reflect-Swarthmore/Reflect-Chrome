@@ -127,6 +127,8 @@ li{
 }
 #title{
   width: 70%;
+  float: left;
+background-color: white;
 }
 #journal-options{
   height: 50px;
