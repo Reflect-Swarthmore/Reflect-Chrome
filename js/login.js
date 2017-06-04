@@ -99,7 +99,9 @@ function welcomeScene(name){
     $( "#welcome-msg" ).removeAttr( "style" ).fadeOut(500); //.fadeOut(2500);
     $( "#welcome-usr" ).removeAttr( "style" ).fadeOut(500); //.fadeOut(2500);
   }, 1500 );
+
   setTimeout(function(){
+    $('.welcome').display = 'none';
     document.getElementById('journal-entry').setAttribute("class", "collapse in");
   }, 2500);
 }

@@ -132,7 +132,7 @@ document.getElementById('sunset').addEventListener("click", function(){
 var initialized = false;
 
 //This will print previous journal entry to a given element
-document.getElementById('previous').addEventListener("click", function(){
+document.getElementById('past-entries').addEventListener("click", function(){
 	if (!initialized){
 		var user = firebase.auth().currentUser; //this pulls the firebase user
 	  var date, journal;
@@ -142,11 +142,15 @@ document.getElementById('previous').addEventListener("click", function(){
 			.then(function(snapshot){
 				//snapshot is a sub-database with all the user entries and the
 				// forEach() function iterates through every entry under user.userID
+        var count = 0;
 				snapshot.forEach(function(childSnapshot){
 					date = childSnapshot.child("date").val();
 					journal = childSnapshot.child("journal").val();
 					//call printJournal to print a  window after the #previous-close item
-					printJournal(date, journal, "#previous-close");
+					printJournal(date, journal, ".modal-body");
+          count+=1;
+          if (count == 3)
+          return true;
 			});
 		});
 		// set initialized to true in order to prevent printing all the journals
@@ -186,7 +190,7 @@ function printJournal(heading, text, item){
 	p.appendChild(p_head);
 	p.appendChild(p_body);
 	// document.getElementById(item).appendChild(p);
-  $(item).after(p);
+  $(item).append(p);
   var entry = new Quill(p_body,{
     theme: 'bubble',
     readOnly: true
@@ -233,3 +237,33 @@ var menuAnim = function(){
 }
 
 $(document).ready(menuAnim);
+//*************************************************
+//
+//    BOTTOM MODAL
+//
+//*************************************************
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("past-entries");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
