@@ -361,12 +361,10 @@ input:focus{
   border-style: none;
   margin: 5px;
 }
-.mbri-lock {
+.mbri-lock, .mbri-unlock {
   font-size: 30px;
-  font-weight: bold;
   color: rgba(255, 255, 255, 1)
 }
-.mbri-lock:hover {
-  background-image: url("../fonts/mobirise/style.css/.mbri-unlock");
+.mbri-lock:hover, .mbri-unlock:hover {
   font-weight: bold;
 }

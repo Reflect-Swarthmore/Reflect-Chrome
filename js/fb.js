@@ -28,6 +28,11 @@ var quill = new Quill('#inputText', {
   theme: 'snow'  // or 'bubble'
 });
 
+// LOCK button- toggles between locked and unlocked
+$('#lock-button').click(function(){
+    $(this).find('span').toggleClass('mbri-unlock').toggleClass('mbri-lock');
+});
+
 
 // fb.js is hadnling the button functions
 // This handles the submit and themes button
