@@ -34,7 +34,7 @@ $('#lock-button').click(function(){
 });
 
 
-// fb.js is hadnling the button functions
+// fb.js is handling the button functions
 // This handles the submit and themes button
 
 //this functions is the listener for the submit button

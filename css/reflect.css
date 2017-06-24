@@ -7,8 +7,9 @@ h1{
 	text-align: center;
   margin-top:5%;
 	/*font-size: 100px;*/
-  font-size: 7vw;
-	font-family: "Century Gothic", sans-serif;
+  font-size: 9vw;
+	/*font-family: "Century Gothic", sans-serif;*/
+  font-family: "Quicksand", sans-serif;
 	color: #0056b3;
 }
 
@@ -20,7 +21,7 @@ h3, .bgicons, .welcome{
   margin-top:10%;
   text-align: center;
   font-size: 3vw;
-  font-family: "Century Gothic", sans-serif;
+  font-family: "Quicksand", sans-serif;
   /*color: #66b0ff;*/
   color: white;
 }
@@ -99,13 +100,95 @@ li{
     /*margin-top: 0%;
     margin-bottom: 1%;*/
 }
-#journal-buttons {
-  text-align: left;
-  border-color: gray;
-  display: block;
-  padding: 5;
-  background-color: black;
+
+.welcome{
+  display: inline;
 }
+
+#journal-options{
+  height: 50px;
+  font-family: "Raleway", sans-serif;
+}
+#journal-entry{
+}
+#title{
+  height: 50px;
+  border-top-left-radius: 10px;
+  font-family: "Raleway", sans-serif;
+}
+#date{
+  /*border-style: none;*/
+  border-top-right-radius: 10px;
+  padding: 15px;
+  width: 30%;
+  height: 100%;
+  color: black;
+  font-size: 12px;
+  text-align: right;
+  float: right;
+  background-color: rgba(256,256,256, 1);
+  font-family: "Raleway", sans-serif;
+}
+#inputText{
+  height: 20vw;
+  /*margin-bottom: 5px;*/
+  background-color: rgba(255, 255, 255, .6);
+  font-family: "Raleway", sans-serif;
+}
+.ql-toolbar{
+  background-color: rgba(255, 255, 255, .6);
+}
+
+#journal-buttons {
+  background-color: rgba(255, 255, 255, .6);
+  border-color: rgba(255, 255, 255, .6);
+  display: block;
+  text-align: center;
+  padding: 3px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: "Raleway", sans-serif;
+  height: 50px;
+}
+
+#past-entries{
+  /*border: 10px;*/
+  /*margin-top: 10px;*/
+  float: left;
+  margin: 3px;
+}
+#lock-button, #myBtn {
+  background-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  /*margin: 2px;*/
+}
+.mbri-lock, .mbri-unlock, .mbri-paper-plane {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 1)
+}
+.mbri-lock:hover, .mbri-unlock:hover, .mbri-paper-plane:hover {
+  font-weight: bold;
+}
+
+button,
+button:active,
+button:focus,
+button:hover,
+.mbri-lock:focus, .mbri-lock:active,
+.mbri-unlock:focus, .mbri-unlock:active,
+.mbri-paper-plane:focus, .mbri-paper-plane:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#draft {
+  float: right;
+  margin: 3px;
+}
+#myBtn {
+  float: right;
+}
+
 .btn-primary{
   background-color: black;
   color: white;
@@ -140,12 +223,7 @@ li{
   float: left;
 background-color: white;
 }
-#journal-options{
-  height: 50px;
-}
-#title{
-  height: 50px;
-}
+
 input{
     border-style: none;
     width: 100%;
@@ -160,6 +238,7 @@ input:focus{
 #menu-button{
   background-color: rgba(0,0,0,0);
   border-style: none;
+  margin-top: 5px;
 }
 .mbri-menu {
   font-size: 30px;
@@ -167,29 +246,8 @@ input:focus{
   color: rgba(255, 255, 255, 1)
 }
 
-#date{
-  border-style: none;
-  padding: 15px;
-  width: 30%;
-  height: 100%;
-  color: black;
-  font-size: 12px;
-  text-align: right;
-  float: right;
-  background-color: rgba(256,256,256, 1);
 
-}
-.welcome{
-  display: inline;
-}
-#inputText{
-  height: 300px;
-  /*margin-bottom: 5px;*/
-  background-color: rgba(255, 255, 255, .6);
-}
-.ql-toolbar{
-  background-color: rgba(255, 255, 255, .6);
-}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -350,21 +408,4 @@ input:focus{
 @keyframes fadeIn {
     from {opacity: 0}
     to {opacity: 1}
-}
-#past-entries{
-  /*border: 10px;*/
-  margin-top: 10px;
-  float: right;
-}
-#lock-button {
-  background-color: rgba(0, 0, 0, 0);
-  border-style: none;
-  margin: 5px;
-}
-.mbri-lock, .mbri-unlock {
-  font-size: 30px;
-  color: rgba(255, 255, 255, 1)
-}
-.mbri-lock:hover, .mbri-unlock:hover {
-  font-weight: bold;
 }
