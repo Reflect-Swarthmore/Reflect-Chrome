@@ -1,6 +1,11 @@
 //**************************************************************************
 //	This javascript file is the main functionality of the chrome extension
 //	Authors: Miguel Gutierrez
+var reflect_view = new ReflectView('reflect-model');
+reflect_view.reflect_view_menu.loadAvailableThemesList(
+  [{name:"mountains1", url: "url(../images/sunset.png)"}]
+);
+
 
 //**************************************************************************
 //
