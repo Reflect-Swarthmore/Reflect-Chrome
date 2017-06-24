@@ -21,10 +21,12 @@
  * @constructor
  */
 var ReflectView = function(reflect_model){
+    //@TODO events declared here
+  this.settingsChangedEvent = new Event(this);
+
   //@TODO variables declared here, some may be a sidebar object
   //            and a modal object for previous entries
-  this.reflect_view_menu = new ReflectMenu();
-  //@TODO events declared here
+  this.reflect_view_menu = new ReflectMenu(this.settingsChangedEvent);
 
 }
 // the .prototype is where the functions for an object are defined
@@ -36,9 +38,13 @@ ReflectView.prototype = {
  *  and listening to user events
  * @constructor
  */
-var ReflectMenu = function(){
+var ReflectMenu = function(settingsChangedEvent){
   this.profile_picture = null;
   this.available_themes = [];
+
+  //event listener to pass user actions to view
+  //the events in this class only notify and don't listen
+  this.settingsChangedEvent = settingsChangedEvent;
 
   //variables begining with document reference the DOM elements using jQuery
   this.$document_menu = $('#menu-contents');
