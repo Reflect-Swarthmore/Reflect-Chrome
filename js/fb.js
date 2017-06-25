@@ -1,9 +1,17 @@
 //**************************************************************************
 //	This javascript file is the main functionality of the chrome extension
 //	Authors: Miguel Gutierrez
+//
+//***************************************************************************
+
+//initialize our objects here
 var reflect_view = new ReflectView('reflect-model');
-reflect_view.reflect_view_menu.loadAvailableThemesList(
-  [{name:"mountains1", url: "url(../images/sunset.png)"}]
+
+//load available themes
+reflect_view.reflect_view_menu.loadAvailableThemesList([
+  {name:"Mountains", url: "url(../images/mountains.png)"},
+  {name:"Sunset", url: "url(../images/sunset.png)"},
+  ]
 );
 
 
@@ -99,37 +107,6 @@ var current = document.body.style.backgroundImage; //this is to allow for previe
 
 $(document).ready(function(){
 	$(".dropdown-toggle").dropdown();
-});
-
-function newBackground(location){
-	document.body.style.backgroundImage = location;
-}
-
-/* mouseover event changes background to preview
-	 mouseout changes the background image back to current
- */
-document.getElementById('mountains').addEventListener("mouseover", function(){
-	newBackground("url(../images/mountains.png)");
-});0
-document.getElementById('sunset').addEventListener("mouseover", function(){
-	newBackground("url(../images/sunset.png)");
-});
-document.getElementById('mountains').addEventListener("mouseout", function(){
-	newBackground(current);
-});
-document.getElementById('sunset').addEventListener("mouseout", function(){
-	newBackground(current);
-});
-
-
-//click listeners - this changes the current variable and sets the background
-document.getElementById('mountains').addEventListener("click", function(){
-	current = "url(../images/mountains.png)";
-	newBackground(current);
-});
-document.getElementById('sunset').addEventListener("click", function(){
-	current = "url(../images/sunset.png)";
-	newBackground(current);
 });
 
 //**************************************************************************
