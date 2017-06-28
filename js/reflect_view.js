@@ -50,9 +50,24 @@ var ReflectMenu = function(settingsChangedEvent){
   this.$document_menu = $('#menu-contents');
   this.$documenet_menu_themes_available = $('#menu-themes-available');
   this.$document_menu_profile_picture = null;
-
+  this.$document_menu_user_journals = $('#menu-user-journals');
 }
 ReflectMenu.prototype = {
+  /**
+   * loadUserJournalList - populates the joural list in the sidebar menu
+   * @param  {Object[]} journal_list [{name: string}, {name:string},{},...]
+   */
+  loadUserJournalList: function(journal_list){
+    journal_list.forEach((journal)=>{
+      var $item = $('<li>', {'id': journal.name, 'class':'list-group-item'});
+      var $link = $('<a>', {'href':'#'});
+      $link.text(journal.name);
+      // @TODO add click listener to load the journal
+      $item.append($link);
+      this.$document_menu_user_journals.append($item);
+      console.log('model-view-menu: user journals loaded');
+    });
+  },
   /**
    * loadAvailableThemesList - populates the themes accordion in the sidebar,
    *                            adds click listener to each theme

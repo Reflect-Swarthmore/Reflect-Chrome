@@ -7,12 +7,26 @@
 //initialize our objects here
 var reflect_view = new ReflectView('reflect-model');
 
+//********************************************************************
+//
+//               SIDEBAR MENU
+//
+//********************************************************************
+
 //load available themes
 reflect_view.reflect_view_menu.loadAvailableThemesList([
   {name:"Mountains", url: "url(../images/mountains.png)"},
-  {name:"Sunset", url: "url(../images/sunset.png)"},
+  {name:"Sunset", url: "url(../images/sunset.png)"}
   ]
 );
+//load user journals
+reflect_view.reflect_view_menu.loadUserJournalList([
+  {name:"Personal"},
+  {name:"Creative"}
+  ]
+);
+
+
 
 
 //**************************************************************************
